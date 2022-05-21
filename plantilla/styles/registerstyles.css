@@ -1,0 +1,24 @@
+.registerForm {
+  height: 80%;
+  width: 40%;
+}
+
+.registerTable {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+
+.registerColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#registerBtn {
+  width: 30%;
+}
+
+label, input {
+  margin: 15px;
+}

@@ -1,0 +1,28 @@
+.loginForm {
+  height: 70%;
+  width: 40%;
+}
+
+.loginRow {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.loginRow > label {
+  margin: 0px;
+}
+
+.loginRow > input {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+#loginBtn {
+width: 80%;
+margin: 0 auto;
+}
+
+a {
+  text-align: center;
+}
