@@ -1,0 +1,39 @@
+.modificarReservaForm {
+  height: 70%;
+  width: 60%;
+}
+
+.modificarReservaRow{
+  width: 40%;
+  display: flex;
+}
+
+.modificarReservaCol {
+  display: flex;
+  justify-content: center;
+ flex-direction: column;
+}
+
+#modificarReservaCbo {
+  margin: 0 0 0 auto;
+}
+.col2{
+  margin: 0 auto;
+}
+
+.modificarReservaBtn{
+  width: 40%;
+  margin: 0 auto;
+}
+
+.userInfo {
+  position: relative;
+  bottom: -7%;
+  margin: 0 0 0 auto;
+}
+
+p, span {
+  font-family: 'Akshar', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}

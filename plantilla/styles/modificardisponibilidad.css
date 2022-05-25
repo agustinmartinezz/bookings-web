@@ -1,0 +1,39 @@
+.modDisponibilidadForm {
+  height: 70%;
+  width: 60%;
+}
+
+.modDisponibilidadRow {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.userInfo {
+  position: relative;
+  bottom: -7%;
+  margin: 0 0 0 auto;
+}
+
+.modDisponibilidadBtn {
+  width: 50%;
+  height: 5vh;
+}
+
+.modDisponibilidadInput {
+  border-width: 0;
+  background-color: #c7c7c7;
+}
+
+.modDisponibilidadPCupo{
+  text-align: center;
+  width: 40%;
+  height: 5vh;
+  background-color: #c7c7c7;
+}
+
+p {
+  font-family: 'Akshar', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}

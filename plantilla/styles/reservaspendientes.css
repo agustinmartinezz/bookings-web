@@ -1,0 +1,40 @@
+.reservasPendientesForm {
+  height: 70%;
+  width: 60%;
+}
+
+.reservasPendientesRow {
+  width: 50%;
+  display: flex;
+}
+
+.contenedorImg {
+  height: 6vw;
+  width: 6vw;
+  border-style: solid;
+  border-color: #aa671d;
+}
+
+.reservasPendientesImg {
+
+}
+
+.col2 {
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: end;
+}
+
+.userInfo {
+  position: relative;
+  bottom: -11%;
+  margin: 0 0 0 auto;
+}
+
+p {
+  font-family: 'Akshar', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}

@@ -26,3 +26,9 @@
 select, input{
   margin: 0 0 0 auto;
 }
+
+p {
+  font-family: 'Akshar', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}

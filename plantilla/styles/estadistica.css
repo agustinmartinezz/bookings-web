@@ -1,0 +1,33 @@
+.estadisticaForm {
+  height: 70%;
+  width: 60%;
+}
+
+.estadisticaRow {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.estadisticaBtn {
+  width: 40%;
+}
+
+.userInfo {
+  position: relative;
+  bottom: -6%;
+  margin: 0 0 0 auto;
+}
+
+p, textarea {
+  font-family: 'Akshar', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+textarea {
+  resize: none;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #aa671d;
+}
