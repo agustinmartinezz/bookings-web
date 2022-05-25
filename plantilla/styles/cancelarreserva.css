@@ -1,0 +1,28 @@
+.cancelarReservaForm {
+  height: 50%;
+  width: 60%;
+}
+
+.cancelarReservaRow{
+  width: 50%;
+  display: flex;
+}
+
+#cancelarReservaCnt {
+  width: 30%;
+}
+
+.userInfo {
+  position: relative;
+  bottom: -8%;
+  margin: 0 0 0 auto;
+}
+
+#cancelarReservaBtn {
+    margin: 0 auto;
+    width: 35%;
+}
+
+select, input{
+  margin: 0 0 0 auto;
+}
