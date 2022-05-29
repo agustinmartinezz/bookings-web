@@ -15,8 +15,9 @@
   border-color: #aa671d;
 }
 
-.reservasPendientesImg {
-
+#reservasPendientesImg {
+  width: 100%;
+  object-fit: contain;
 }
 
 .col2 {
