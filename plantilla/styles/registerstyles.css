@@ -17,6 +17,10 @@
 
 #registerBtn {
   width: 30%;
+  bottom: 0;
+}
+#loginBtn {
+  width: 25%;
 }
 
 label, input {

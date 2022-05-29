@@ -1,9 +1,6 @@
 window.addEventListener('load', onWindowLoad)
 function onWindowLoad() {
-  
-  iframe = document.getElementById('frmRegister')
-  const frmRegister = iframe.contentDocument
-  
+    
   iframe = document.getElementById('frmRealizarReserva')
   const frmRealizarReserva = iframe.contentDocument
   
@@ -30,10 +27,4 @@ function onWindowLoad() {
   
   iframe = document.getElementById('frmEstadisticaLocal')
   const frmEstadisticaLocal = iframe.contentDocument
-
-
-  // const registerBtn = frmLogin.getElementById('registerBtn')
-
-
-
 }

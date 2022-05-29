@@ -1,5 +1,7 @@
 const USUARIOS_APP = []
 const RESERVAS_APP = []
+const USUARIO_ACTIVO = []
+const PANTALLA_ACTIVA = []
 
 const usuarioIni1 = new Persona('agustin','12345','P','Agustin Martinez')
 const usuarioIni2 = new Local('local1','12345','L','La pasiva','Restaurante','S',100)

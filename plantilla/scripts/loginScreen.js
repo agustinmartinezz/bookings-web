@@ -1,5 +1,6 @@
 window.addEventListener('load',onWindowLoad)
 function onWindowLoad() {
+  PANTALLA_ACTIVA.push('frmLogin')
   const loginFrame = document.getElementById('frmLogin')
   const frmLogin = loginFrame.contentDocument
 
@@ -8,15 +9,78 @@ function onWindowLoad() {
   const loginBtn = frmLogin.getElementById('loginBtn')
   const registerBtn = frmLogin.getElementById('registerBtn')
 
+  loginBtn.addEventListener('click',loginBtnClick)
   registerBtn.addEventListener('click',registerBtnClick)
+
+  function loginBtnClick() {
+    let usuario = loginUser.value.toLowerCase()
+    let contrasena = loginPassword.value
+
+    if (usuario && contrasena) {
+      if (validoSimbolosUsuario(usuario)) {
+        let posUsuario = validoUsuario(usuario) //Si encuentra el usuario devuelve la posicion, si no devuelve -1
+
+        if (posUsuario > -1) {
+          validoContrasena(posUsuario,contrasena) ? loginCorrecto(posUsuario) : alert('Datos de ingreso incorrectos') //Si la contrasena es correcta para el usuario ejecuto logica del login correcto
+        } else {
+          alert('Datos de ingreso incorrectos')
+        }
+      } else {
+        alert('El usuario no puede contener símbolos')
+      }
+    } else {
+      alert('Debe ingresar nombre de usuario y contraseña')
+    }
+    
+  }
 
   function registerBtnClick() {
     const registerFrame = document.getElementById('frmRegister')
-    // const frmRegister = registerFrame.contentDocument
 
     loginFrame.style.setProperty('display','none')
+    PANTALLA_ACTIVA.pop()
+    PANTALLA_ACTIVA.push('frmRegister')
     registerFrame.style.setProperty('display','block')
-    console.log('Hice click en register')
   }
 
+  function validoUsuario(usuario) {
+    let encontre = false
+    let indice = 0
+    let posUsuario = -1
+
+    do {
+      if (usuario == USUARIOS_APP[indice].usuario) {
+        encontre = true
+        posUsuario = indice
+      }
+      indice += 1
+    } while (!encontre && indice != USUARIOS_APP.length) //Busco nombre de usuario en el array y me quedo con la posicion si lo encuentro
+    return posUsuario
+  }
+
+  function validoSimbolosUsuario(usuario) {
+    for (let i = 0;i<usuario.length;i++) {
+      //Valido que cada caracter sea un numero o una letra
+      if (!((usuario.charCodeAt(i) >= 48 && usuario.charCodeAt(i) <= 57) || (usuario.charCodeAt(i) >= 97 && usuario.charCodeAt(i) <= 122))) {
+        return false
+      }
+      return true
+    }
+  }
+
+  function validoContrasena(posUsuario,contrasena) {
+    return USUARIOS_APP[posUsuario].contrasena == contrasena ? true : false
+  }
+
+  function loginCorrecto(posUsuario) {
+    loginUser.value = ''
+    loginPassword.value = ''
+    USUARIO_ACTIVO.push(USUARIOS_APP[posUsuario])
+    actualizarNavegacion(USUARIOS_APP[posUsuario])
+    loginFrame.style.setProperty('display','none')
+    PANTALLA_ACTIVA.pop()
+    PANTALLA_ACTIVA.push('frmPrincipal')
+    toggleCerrarSesion()
+    principalTitle(USUARIOS_APP[posUsuario].usuario)
+  }
 }
