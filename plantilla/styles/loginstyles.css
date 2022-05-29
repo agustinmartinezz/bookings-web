@@ -22,7 +22,10 @@
 width: 80%;
 margin: 0 auto;
 }
-
+#registerBtn{
+width: 80%;
+margin: 0 auto;
+}
 a {
   text-align: center;
 }
