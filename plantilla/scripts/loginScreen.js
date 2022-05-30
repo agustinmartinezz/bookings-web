@@ -81,6 +81,7 @@ function onWindowLoad() {
     PANTALLA_ACTIVA.pop()
     PANTALLA_ACTIVA.push('frmPrincipal')
     toggleCerrarSesion()
-    principalTitle(USUARIOS_APP[posUsuario].usuario)
+    principalTitle(USUARIOS_APP[posUsuario].nombre)
+    updNomUsuarioCrearReserva()
   }
 }

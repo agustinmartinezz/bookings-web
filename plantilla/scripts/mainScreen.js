@@ -1,9 +1,6 @@
 window.addEventListener('load', onWindowLoad)
 function onWindowLoad() {
-    
-  iframe = document.getElementById('frmRealizarReserva')
-  const frmRealizarReserva = iframe.contentDocument
-  
+      
   iframe = document.getElementById('frmCancelarReserva')
   const frmCancelarReserva = iframe.contentDocument
   

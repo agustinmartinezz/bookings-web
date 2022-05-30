@@ -97,8 +97,12 @@ function onWindowLoad() {
       return 'El usuario ingresado ya existe'
     }
 
-    let nuevoUsuario = new Persona(usuario,contrasena,'P',nombre)
+    let nuevoUsuario = new Usuario(usuario,contrasena,'P',nombre)
     USUARIOS_APP.push(nuevoUsuario)
+    registerName.value = ''
+    registerUsername.value = ''
+    registerPassword.value = ''
+    registerVerifyPassword.value = ''
     return 'Usuario creado correctamente'
   }
 }
