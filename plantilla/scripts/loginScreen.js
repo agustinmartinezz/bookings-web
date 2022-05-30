@@ -42,12 +42,12 @@ function onWindowLoad() {
     PANTALLA_ACTIVA.push('frmRegister')
     registerFrame.style.setProperty('display','block')
   }
-
+  
   function validoUsuario(usuario) {
     let encontre = false
     let indice = 0
     let posUsuario = -1
-
+  
     do {
       if (usuario == USUARIOS_APP[indice].usuario) {
         encontre = true
@@ -57,7 +57,7 @@ function onWindowLoad() {
     } while (!encontre && indice != USUARIOS_APP.length) //Busco nombre de usuario en el array y me quedo con la posicion si lo encuentro
     return posUsuario
   }
-
+  
   function validoSimbolosUsuario(usuario) {
     for (let i = 0;i<usuario.length;i++) {
       //Valido que cada caracter sea un numero o una letra
@@ -67,11 +67,11 @@ function onWindowLoad() {
       return true
     }
   }
-
+  
   function validoContrasena(posUsuario,contrasena) {
     return USUARIOS_APP[posUsuario].contrasena == contrasena ? true : false
   }
-
+  
   function loginCorrecto(posUsuario) {
     loginUser.value = ''
     loginPassword.value = ''
