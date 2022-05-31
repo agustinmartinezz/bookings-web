@@ -1,6 +1,4 @@
-window.addEventListener('load',onWindowLoad)
-
-function onWindowLoad() {
+function crearReservaLoaded() {
   const realizarReservaFrame = document.getElementById('frmRealizarReserva')
   const frmRealizarReserva = realizarReservaFrame.contentDocument
 
@@ -98,7 +96,7 @@ function onWindowLoad() {
     reservasPendientes.forEach(function (value) {
       cntCuposPendientes += value.cuposReserva
     })
-    console.log(Number(cntCuposPendientes),cantReserva,datosLocal[0].cupoMaximo)
+
     return Number(cntCuposPendientes) + cantReserva <= datosLocal[0].cupoMaximo ? true : false
   }
 }
@@ -107,7 +105,6 @@ function onWindowLoad() {
 function updNomUsuarioCrearReserva() {
   const realizarReservaFrame = document.getElementById('frmRealizarReserva')
   const frmRealizarReserva = realizarReservaFrame.contentDocument
-  console.log(frmRealizarReserva)
   const realizarReservaUser = frmRealizarReserva.getElementById('realizarReservaUser')
   realizarReservaUser.innerHTML = `usuario: ${USUARIO_ACTIVO[0].usuario}`
 }

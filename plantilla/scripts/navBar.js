@@ -1,4 +1,4 @@
-window.addEventListener('load',onWindowLoad)
+window.addEventListener('DOMContentLoaded',onWindowLoad)
 
 function onWindowLoad() {
   const navBarItem1 = document.getElementById('navBarItem1')

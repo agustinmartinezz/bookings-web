@@ -6,15 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Akshar&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="./scripts/crearReservaScreen.js"></script>
-  <script type="text/javascript" src="./scripts/principalScreen.js"></script>
-  <script type="text/javascript" src="./scripts/registerScreen.js"></script>
-  <script type="text/javascript" src="./scripts/loginScreen.js"></script>
-  <script type="text/javascript" src="./scripts/cerrarSesion.js"></script>
+
   <script type="text/javascript" src="./scripts/dataModels.js"></script>
   <script type="text/javascript" src="./scripts/data.js"></script>
-  <script type="text/javascript" src="./scripts/mainScreen.js"></script>
+
+  <script type="text/javascript" src="./scripts/loginScreen.js"></script>
+  <script type="text/javascript" src="./scripts/registerScreen.js"></script>
+
   <script type="text/javascript" src="./scripts/navBar.js"></script>
+  <script type="text/javascript" src="./scripts/principalScreen.js"></script>
+
+  <script type="text/javascript" src="./scripts/cerrarSesion.js"></script>
+  <script type="text/javascript" src="./scripts/crearReservaScreen.js"></script>
 
   <title>Reservas</title>
 </head>
@@ -36,10 +39,10 @@
 
   </header>
    
-  <iframe id="frmLogin" src="login.html" scrolling="no" frameborder="0"></iframe>
-  <iframe id="frmRegister" src="register.html" scrolling="no" frameborder="0" style="display: none;"></iframe>
+  <iframe id="frmLogin" onload="loginScreenLoaded()" src="login.html" scrolling="no" frameborder="0"></iframe>
+  <iframe id="frmRegister" onload="registerScreenLoaded()" src="register.html" scrolling="no" frameborder="0" style="display: none;"></iframe>
   <iframe id="frmPrincipal" src="principal.html" scrolling="no" frameborder="0" style="display: none;"></iframe>
-  <iframe id="frmRealizarReserva" src="realizarreserva.html" scrolling="no" frameborder="0" style="display: none;"></iframe>
+  <iframe id="frmRealizarReserva" onload="crearReservaLoaded()" src="realizarreserva.html" scrolling="no" frameborder="0" style="display: none;"></iframe>
   <iframe id="frmCancelarReserva" src="cancelarreserva.html" scrolling="no" frameborder="0" style="display: none;"></iframe>
   <iframe id="frmEstadistica" src="estadistica.html" scrolling="no" frameborder="0" style="display: none;"></iframe>
   <iframe id="frmCupoMaximo" src="cupomaximo.html" scrolling="no" frameborder="0" style="display: none;"></iframe>

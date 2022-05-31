@@ -1,6 +1,4 @@
-window.addEventListener('load',onWindowLoad)
-
-function onWindowLoad() {
+function registerScreenLoaded() {
 
   const frmLogin = document.getElementById('frmLogin')
   const iframe = document.getElementById('frmRegister')

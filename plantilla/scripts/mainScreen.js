@@ -1,4 +1,4 @@
-window.addEventListener('load', onWindowLoad)
+window.addEventListener('DOMContentLoaded', onWindowLoad)
 function onWindowLoad() {
       
   iframe = document.getElementById('frmCancelarReserva')

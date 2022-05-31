@@ -1,5 +1,5 @@
-window.addEventListener('load',onWindowLoad)
-function onWindowLoad() {
+// window.addEventListener('DOMContentLoaded',onWindowLoad)
+function loginScreenLoaded() {
   PANTALLA_ACTIVA.push('frmLogin')
   const loginFrame = document.getElementById('frmLogin')
   const frmLogin = loginFrame.contentDocument
