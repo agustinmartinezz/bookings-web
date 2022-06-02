@@ -26,12 +26,6 @@
   margin: 0 auto;
 }
 
-.userInfo {
-  position: relative;
-  bottom: -7%;
-  margin: 0 0 0 auto;
-}
-
 p, span {
   font-family: 'Akshar', sans-serif;
   font-weight: bold;

@@ -10,8 +10,8 @@ const usuarioIni4 = new Local('local3','12345','L','McDonalds','Restaurante','S'
 const usuarioIni5 = new Local('local4','12345','L','Subway','Restaurante','S',10)
 USUARIOS_APP.push(usuarioIni1,usuarioIni2,usuarioIni3,usuarioIni4,usuarioIni5)
 
-const reservaIni1 = new Reserva('agustin','local1',3,'F',3)
-const reservaIni2 = new Reserva('agustin','local2',4,'F',5)
-const reservaIni3 = new Reserva('agustin','local3',2,'F',4)
-const reservaIni4 = new Reserva('agustin','local4',6,'F',4)
+const reservaIni1 = new Reserva('agustin','local1',3,'P',0)
+const reservaIni2 = new Reserva('agustin','local2',4,'F',0)
+const reservaIni3 = new Reserva('agustin','local3',2,'F',0)
+const reservaIni4 = new Reserva('agustin','local4',6,'F',0)
 RESERVAS_APP.push(reservaIni1,reservaIni2,reservaIni3,reservaIni4)

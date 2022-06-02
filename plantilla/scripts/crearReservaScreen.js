@@ -18,9 +18,12 @@ function crearReservaLoaded() {
     if (validoReserva(usuarioActivo,usuarioLocal)) {
       if (cantReserva > 0) {
         if (validoDisponibilidad(cantReserva,usuarioLocal)) {
-          // usuarioPersona,usuarioLocal,cuposReserva,estadoReserva,calificacionReserva
+          //Creo una nueva instancia de una reserva para insertarla a los registros
           let nuevaReserva = new Reserva(usuarioActivo.usuario,usuarioLocal,cantReserva,'P',0)
           RESERVAS_APP.push(nuevaReserva)
+
+          recargarReservas() //Recargo el combo de reservas en la pantalla de CANCELAR RESERVAS
+          realizarReservaCnt.value = ''
           alert('Reserva ingresada exitosamente')
         } else {
           alert('El local seleccionado no dispone del cupo necesario para su reserva')
@@ -35,16 +38,11 @@ function crearReservaLoaded() {
     let locales = []
 
     //Cargo los locales en un array separado
-    USUARIOS_APP.forEach(function (value, index) {
-      switch (value.tipo) {
-        case 'L':
-          locales.push(USUARIOS_APP[index])
-          break;
-        case 'P':
-          break;
-      }
+    locales = USUARIOS_APP.filter((value) => {
+      return value.tipo == 'L' ? true : false
     })
 
+    //Recorro el array de locales y los cargo en el combo
     locales.forEach(function (value) {
       let option = document.createElement('option')
       option.value = value.usuario
@@ -56,6 +54,7 @@ function crearReservaLoaded() {
   function validoReserva(usuarioActivo,usuarioLocal) {
     let result = true
 
+    //Cargo datosLocal con los datos del local seleccionado
     let datosLocal = USUARIOS_APP.filter(function (value) {
       return value.usuario == usuarioLocal ? true : false
     })
@@ -64,9 +63,9 @@ function crearReservaLoaded() {
     if (datosLocal[0].permiteReservas == 'S') {
       RESERVAS_APP.forEach(function (value) {
         //Si el usuario activo tiene reservas pendientes
-        if (usuarioActivo.usuario == value.usuarioPersona && value.estadoReserva == 'P') {
+        if (usuarioActivo.usuario == value.usuarioPersona && value.estadoReserva == 'P' && value.usuarioLocal == usuarioLocal) {
           result = false
-          alert('El usuario cuenta con otra reserva en estado pendiente')
+          alert('El usuario cuenta con otra reserva en estado pendiente para ese local')
         }
       })
     } else {
@@ -99,12 +98,4 @@ function crearReservaLoaded() {
 
     return Number(cntCuposPendientes) + cantReserva <= datosLocal[0].cupoMaximo ? true : false
   }
-}
-
-
-function updNomUsuarioCrearReserva() {
-  const realizarReservaFrame = document.getElementById('frmRealizarReserva')
-  const frmRealizarReserva = realizarReservaFrame.contentDocument
-  const realizarReservaUser = frmRealizarReserva.getElementById('realizarReservaUser')
-  realizarReservaUser.innerHTML = `usuario: ${USUARIO_ACTIVO[0].usuario}`
 }

@@ -29,6 +29,11 @@
   align-items: center;
 }
 
+.pageFooter {
+  flex-direction: column;
+  justify-content: center;
+}
+
 .pageTitle {
   font-family: 'Akshar', sans-serif;
 }
@@ -94,16 +99,17 @@
   border-color: #aa671d;
   position: relative;
   bottom: 10%;
-  }
-  .appBtn:hover{
-    background-color: lightgray;
-  }
+}
 
-  #cerrarSesionBtn {
-    margin: 0 1vw 0 auto;
-  }
+.appBtn:hover{
+  background-color: lightgray;
+}
 
-label, input, select {
+#cerrarSesionBtn, #username {
+   margin: 0 1vw 0 auto; 
+}
+
+label, input, select, p {
 font-family: 'Akshar', sans-serif;
 font-weight: bold;
 font-size: 18px;

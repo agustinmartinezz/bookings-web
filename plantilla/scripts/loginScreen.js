@@ -75,13 +75,26 @@ function loginScreenLoaded() {
   function loginCorrecto(posUsuario) {
     loginUser.value = ''
     loginPassword.value = ''
+
+    //Establezco el usuario activo
     USUARIO_ACTIVO.push(USUARIOS_APP[posUsuario])
+    //Muestro barra de navegacion en base al tipo de usuario
     actualizarNavegacion(USUARIOS_APP[posUsuario])
+
+    //Oculto el login
     loginFrame.style.setProperty('display','none')
+
+    //Quito el login de pantalla activa y agrego el form principal
     PANTALLA_ACTIVA.pop()
     PANTALLA_ACTIVA.push('frmPrincipal')
+
+    //Muestro el btn de cerrar sesion
     toggleCerrarSesion()
+
+    //Le paso el Nombre del usuario para la pantalla principal
     principalTitle(USUARIOS_APP[posUsuario].nombre)
-    updNomUsuarioCrearReserva()
+
+    recargarReservasCancelar()
+    recargarReservasCalificar()
   }
 }
