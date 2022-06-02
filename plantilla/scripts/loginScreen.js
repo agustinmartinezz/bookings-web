@@ -96,5 +96,6 @@ function loginScreenLoaded() {
 
     recargarReservasCancelar()
     recargarReservasCalificar()
+    recargarTablaReservasPendientes()
   }
 }

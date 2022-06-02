@@ -23,6 +23,7 @@ function cancelarReservaLoaded() {
           }    
 
           recargarReservasCancelar()
+          recargarTablaReservasPendientes()
         }
       })
     } else {

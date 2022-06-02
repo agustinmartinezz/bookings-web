@@ -1,4 +1,4 @@
-.reservasPendientesForm {
+.porcentajesReservasForm {
   height: 70%;
   width: 60%;
   justify-content: start;
@@ -9,7 +9,7 @@
   margin: 1vh 0 4vh 0;
 }
 
-.reservasPendientesRow {
+.porcentajesReservasRow {
   width: 50%;
   display: flex;
 }
@@ -36,11 +36,10 @@ table {
   border-collapse: collapse;
   width: 100%;
   grid-template-columns: 
-    minmax(20%, 20%)
-    minmax(20%, 20%)
-    minmax(20%, 20%)
-    minmax(20%, 20%)
-    minmax(20%, 20%);
+    minmax(25%, 25%)
+    minmax(25%, 25%)
+    minmax(25%, 25%)
+    minmax(25%, 25%);
 }
 
 thead,
@@ -77,7 +76,7 @@ td {
   color: #808080;
 }
 
-.headerRow {
+.headerRow, td {
   height: 5vh;
 }
 

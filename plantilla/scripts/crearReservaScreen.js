@@ -21,10 +21,12 @@ function crearReservaLoaded() {
           //Creo una nueva instancia de una reserva para insertarla a los registros
           let nuevaReserva = new Reserva(usuarioActivo.usuario,usuarioLocal,cantReserva,'P',0)
           RESERVAS_APP.push(nuevaReserva)
-
-          recargarReservas() //Recargo el combo de reservas en la pantalla de CANCELAR RESERVAS
-          realizarReservaCnt.value = ''
           alert('Reserva ingresada exitosamente')
+          
+          recargarReservasCancelar() //Recargo el combo de reservas en la pantalla de CANCELAR RESERVAS
+          recargarTablaReservasPendientes() //Recargo tabla en reservas pendientes
+          realizarReservaCnt.value = ''
+          
         } else {
           alert('El local seleccionado no dispone del cupo necesario para su reserva')
         }

@@ -7,19 +7,13 @@ class Usuario {
   }
 }
 
-// class Persona extends Usuario {
-//   constructor(usuario,contrasena,tipo,nombrePersona) {
-//     super(usuario,contrasena,tipo)
-//     this.nombrePersona = nombrePersona
-//   }
-// }
-
 class Local extends Usuario {
-  constructor(usuario,contrasena,tipo,nombre,tipoLocal,permiteReservas,cupoMaximo) {
+  constructor(usuario,contrasena,tipo,nombre,tipoLocal,permiteReservas,cupoMaximo,fotoLocal) {
     super(usuario,contrasena,tipo,nombre)
     this.tipoLocal = tipoLocal
     this.permiteReservas = permiteReservas
     this.cupoMaximo = cupoMaximo
+    this.fotoLocal = fotoLocal
   }
 }
 
