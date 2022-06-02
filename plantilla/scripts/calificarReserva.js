@@ -2,14 +2,65 @@ function calificarReservaLoaded() {
   const calificarReservaFrame = document.getElementById('frmCalificarReserva')
   const frmCalificarReserva = calificarReservaFrame.contentDocument
 
+  const calificarReservaStars = frmCalificarReserva.querySelectorAll('.calificarReservaImg')
+  const calificarReservaCbo = frmCalificarReserva.getElementById('calificarReservaCbo')
+  const calificarReservaBtn = frmCalificarReserva.getElementById('calificarReservaBtn')
+
+  calificarReservaBtn.addEventListener('click',calificarReservaBtnClick)
+
+  function calificarReservaBtnClick() {
+    //Valido que no tenga el combo de reservas vacio
+    if (calificarReservaCbo.options.length > 0) {
+      let calificacion = 5
+      let usuarioLocal = calificarReservaCbo.options[calificarReservaCbo.selectedIndex].value
+
+      //Obtengo la calificacion fijandome que estrellas NO estan doradas
+      for (i=4;i>=0;i--) {
+        if (calificarReservaStars[i].getAttribute('src') == 'img/estrella.png') {
+          calificacion -= 1
+        }
+      }
+      //Si la calificacion no es nula, es decir, toco alguna estrella
+      if (calificacion > 0) {
+        RESERVAS_APP.forEach((value) => {
+          //Condiciones para encontrar la reserva que corresponde
+          let mismoUsuarioLocal = value.usuarioLocal == usuarioLocal
+          let mismoUsuaroPersona = value.usuarioPersona == USUARIO_ACTIVO[0].usuario
+          let estadoFinalizada = (value.estadoReserva == 'F' && value.calificacionReserva == 0)
+
+          if (mismoUsuarioLocal && mismoUsuaroPersona && estadoFinalizada) {
+            //Ingreso la calificacion y recargo datos de la pantalla
+            value.calificacionReserva = calificacion
+            alert('Calificacion ingresada correctamente. Gracias!')
+            recargarReservasCalificar()
+            calificarReservaStarClear()
+          }
+        })
+      } else {
+        alert('La calificacion minima es 1')
+      }
+      } else {
+        alert('Debe seleccionar una reserva')
+      }
+  }
+}
+
+function calificarReservaStarClear() {
+  const calificarReservaFrame = document.getElementById('frmCalificarReserva')
+  const frmCalificarReserva = calificarReservaFrame.contentDocument
+  
   const calificarReservaStar1 = frmCalificarReserva.getElementById('calificarReservaStar1')
   const calificarReservaStar2 = frmCalificarReserva.getElementById('calificarReservaStar2')
   const calificarReservaStar3 = frmCalificarReserva.getElementById('calificarReservaStar3')
   const calificarReservaStar4 = frmCalificarReserva.getElementById('calificarReservaStar4')
   const calificarReservaStar5 = frmCalificarReserva.getElementById('calificarReservaStar5')
 
+  calificarReservaStar1.setAttribute('src','img/estrella.png')
+  calificarReservaStar2.setAttribute('src','img/estrella.png')
+  calificarReservaStar3.setAttribute('src','img/estrella.png')
+  calificarReservaStar4.setAttribute('src','img/estrella.png')
+  calificarReservaStar5.setAttribute('src','img/estrella.png')
 }
-
 
 function calificarReservaStar1Click() {
   calificarReservaStar1.setAttribute('src','img/estrella_dorada.png')

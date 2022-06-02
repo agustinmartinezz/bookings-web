@@ -7,26 +7,28 @@ function cancelarReservaLoaded() {
 
   cancelarReservaBtn.addEventListener('click',cancelarReservaBtnClick)
   function cancelarReservaBtnClick() {
-    //Obtengo el usuario del local del combo
-    let usuarioLocal = cancelarReservaCbo.options[cancelarReservaCbo.selectedIndex].value
+    if (cancelarReservaCbo.options.length > 0) {
+      //Obtengo el usuario del local del combo
+      let usuarioLocal = cancelarReservaCbo.options[cancelarReservaCbo.selectedIndex].value
 
+      RESERVAS_APP.forEach((value) => {
+        //Si la reserva corresponde a ese usuario y esa persona y esta en estado pendiente
+        if (value.usuarioLocal == usuarioLocal && value.usuarioPersona == USUARIO_ACTIVO[0].usuario && value.estadoReserva == 'P') {
+          value.estadoReserva = 'C' //Cancelo la reserva correspondiente
+          alert('Reserva cancelada correctamente')
 
-    RESERVAS_APP.forEach((value) => {
-      //Si la reserva corresponde a ese usuario y esa persona y esta en estado pendiente
-      if (value.usuarioLocal == usuarioLocal && value.usuarioPersona == USUARIO_ACTIVO[0].usuario && value.estadoReserva == 'P') {
-        value.estadoReserva = 'C' //Cancelo la reserva correspondiente
-        alert('Reserva cancelada correctamente')
+          //Vacio el combo de reservas para cargarlo nuevamente
+          while (cancelarReservaCbo.options.length > 0) {                
+            cancelarReservaCbo.remove(0);
+          }    
 
-        //Vacio el combo de reservas para cargarlo nuevamente
-        while (cancelarReservaCbo.options.length > 0) {                
-          cancelarReservaCbo.remove(0);
-        }    
-
-        recargarReservas()
-      }
-    })
+          recargarReservasCancelar()
+        }
+      })
+    } else {
+      alert('Debe seleccionar una reserva a cancelar')
+    }
   }
-
 }
 
 function recargarReservasCancelar() {
