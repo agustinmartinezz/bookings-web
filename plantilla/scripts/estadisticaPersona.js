@@ -3,7 +3,7 @@ function estadisticaPersonaLoaded() {
   const frmEstadistica = estadisticaFrame.contentDocument
   
   const estadisticaPersonaBtn = frmEstadistica.getElementById('estadisticaPersonaBtn')
-  const estadisticaPersonaText = frmEstadistica.getElementById('estadisticaPersonaText')
+  // const estadisticaPersonaText = frmEstadistica.getElementById('estadisticaPersonaText')
 
   estadisticaPersonaBtn.addEventListener('click',estadisticaPBtnClick)
 
@@ -38,7 +38,6 @@ function cargarPorcentajesReservas() {
     //Mientras no encuentre o tenga reservas para mirar
     while (!encontre && indice < RESERVAS_APP.length) {
       //Si el usuarioLocal de la reserva que estoy recorriendo es igual al de la reserva que estoy parado y el usuarioPersona coincide con el usuario activo en la aplicacion
-      console.log(RESERVAS_APP[indice].usuarioLocal, value.usuario, RESERVAS_APP[indice].usuarioPersona, USUARIO_ACTIVO[0].usuario, RESERVAS_APP[indice].estadoReserva)
       if (RESERVAS_APP[indice].usuarioLocal == value.usuario && RESERVAS_APP[indice].usuarioPersona == USUARIO_ACTIVO[0].usuario && RESERVAS_APP[indice].estadoReserva == 'F') {
         encontre = true //Encontre una reserva del local actual para el usuario activo
       }
@@ -46,7 +45,8 @@ function cargarPorcentajesReservas() {
     }
     if (encontre) {
       let row  = porcentajesReservasTable.insertRow();
-    
+
+      let cellFoto = row.insertCell()
       let cellLocal = row.insertCell()
       let cellCantUsu = row.insertCell()
       let cantUsu = 0
@@ -54,7 +54,12 @@ function cargarPorcentajesReservas() {
       let cantTot = 0
       let cellPorc = row.insertCell()
 
-      cellLocal.innerHTML = value.usuario
+
+      let fotoLocal = USUARIOS_APP.filter((value2) => {return value.usuario == value2.usuario ? true : false})[0].fotoLocal
+
+      cellFoto.innerHTML = `<img src="${fotoLocal}" class="contenedorImg">`
+
+      cellLocal.innerHTML = value.nombre
 
       //Para contar las reservas que hizo el usuario en ese local tengo en cuenta todos los estados de reserva: 'P','F','C'
       cantUsu = RESERVAS_APP.filter((value2) => {return value2.usuarioPersona == USUARIO_ACTIVO[0].usuario && value2.usuarioLocal == value.usuario ? true : false}).length
@@ -65,7 +70,62 @@ function cargarPorcentajesReservas() {
       cellCantTot.innerHTML = Number(cantTot)
 
       //Calculo el porcentaje correspondiente a las reservas del usuario
-      cellPorc.innerHTML = (Number(cantUsu) / Number(cantTot)) * 100
+      cellPorc.innerHTML = ((Number(cantUsu) / Number(cantTot)) * 100).toFixed(2)
     }
   })
+}
+
+function cargarLocalFavorito() {
+  const estadisticaFrame = document.getElementById('frmEstadistica')
+  const frmEstadistica = estadisticaFrame.contentDocument
+
+  const estadisticaPersonaText = frmEstadistica.getElementById('estadisticaPersonaText')
+
+  //Filtro todas las reservas que tiene ingresadas el usuario
+  let reservasUsuario = RESERVAS_APP.filter((value) => {return value.usuarioPersona == USUARIO_ACTIVO[0].usuario ? true : false})
+
+  let localesReservas = [] //Array que va a tener los diferentes locales en los que el usuario hizo reserva
+  let objReservasLocal = {} //Objeto para almacenar local y su respectiva cantidad de reservas del usuario
+  let arrReservasLocales = [] //Array del objeto declarado arriba
+
+  //Recorro reservas
+  reservasUsuario.forEach((value) => {
+    //Si todavia no lo ingrese en el array, lo ingreso
+    if (!(localesReservas.includes(value.usuarioLocal))) {
+      localesReservas.push(value.usuarioLocal)
+      //Asigno valor a las propiedades del objeto
+      objReservasLocal = {
+        local:value.usuarioLocal,
+        cntReservas:0,
+      }
+      //Guardo el objeto en el array
+      arrReservasLocales.push(objReservasLocal)
+    }
+  })
+
+  //Para cada local filtro las reservas que corresponden al mismo
+  arrReservasLocales.forEach((value) => {
+    let totReservasLocal = reservasUsuario.filter((value2) => {return value.local == value2.usuarioLocal ? true : false})
+    value.cntReservas = totReservasLocal.length
+  })
+
+  //Limpio el objeto que almacena local y cantidad de reservas
+  objReservasLocal = {
+    local:'',
+    cntReservas:0
+  }
+  arrReservasLocales.forEach((value) => {
+    if (value.cntReservas > objReservasLocal.cntReservas) {
+      objReservasLocal.local = value.local
+      objReservasLocal.cntReservas = value.cntReservas
+    }
+  })
+  estadisticaPersonaText.innerHTML = objReservasLocal.local
+  //Muestro tambien si hay locales con la misma cantidad de reservas
+  arrReservasLocales.forEach((value) => {
+    if (value.cntReservas == objReservasLocal.cntReservas && value.local !== objReservasLocal.local) {
+      estadisticaPersonaText.innerHTML += `, ${value.local}`
+    }
+  })
+  console.log(arrReservasLocales)
 }

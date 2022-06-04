@@ -25,6 +25,7 @@ function crearReservaLoaded() {
           
           recargarReservasCancelar() //Recargo el combo de reservas en la pantalla de CANCELAR RESERVAS
           recargarTablaReservasPendientes() //Recargo tabla en reservas pendientes
+          cargarLocalFavorito()
           realizarReservaCnt.value = ''
           
         } else {
