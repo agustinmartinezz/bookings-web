@@ -102,7 +102,6 @@ function loginScreenLoaded() {
     } else{
       modDisponibilidad()
       recargarModificarReservas()
-      recargarChksReserva()
     }
     
   }
