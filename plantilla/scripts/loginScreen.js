@@ -94,9 +94,16 @@ function loginScreenLoaded() {
     //Le paso el Nombre del usuario para la pantalla principal
     principalTitle(USUARIOS_APP[posUsuario].nombre)
 
-    recargarReservasCancelar()
-    recargarReservasCalificar()
-    recargarTablaReservasPendientes()
-    cargarLocalFavorito()
+    if (USUARIO_ACTIVO[0].tipo == 'P') {
+      recargarReservasCancelar()
+      recargarReservasCalificar()
+      recargarTablaReservasPendientes()
+      cargarLocalFavorito()
+    } else{
+      modDisponibilidad()
+      recargarModificarReservas()
+      recargarChksReserva()
+    }
+    
   }
 }

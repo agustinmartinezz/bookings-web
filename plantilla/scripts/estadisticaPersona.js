@@ -3,7 +3,6 @@ function estadisticaPersonaLoaded() {
   const frmEstadistica = estadisticaFrame.contentDocument
   
   const estadisticaPersonaBtn = frmEstadistica.getElementById('estadisticaPersonaBtn')
-  // const estadisticaPersonaText = frmEstadistica.getElementById('estadisticaPersonaText')
 
   estadisticaPersonaBtn.addEventListener('click',estadisticaPBtnClick)
 
@@ -121,11 +120,11 @@ function cargarLocalFavorito() {
     }
   })
   estadisticaPersonaText.innerHTML = objReservasLocal.local
+
   //Muestro tambien si hay locales con la misma cantidad de reservas
   arrReservasLocales.forEach((value) => {
     if (value.cntReservas == objReservasLocal.cntReservas && value.local !== objReservasLocal.local) {
       estadisticaPersonaText.innerHTML += `, ${value.local}`
     }
   })
-  console.log(arrReservasLocales)
 }

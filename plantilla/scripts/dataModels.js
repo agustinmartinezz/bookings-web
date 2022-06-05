@@ -18,7 +18,8 @@ class Local extends Usuario {
 }
 
 class Reserva {
-  constructor(usuarioPersona,usuarioLocal,cuposReserva,estadoReserva,calificacionReserva) {
+  constructor(idReserva,usuarioPersona,usuarioLocal,cuposReserva,estadoReserva,calificacionReserva) {
+    this.idReserva = idReserva
     this.usuarioPersona = usuarioPersona
     this.usuarioLocal = usuarioLocal
     this.cuposReserva = cuposReserva

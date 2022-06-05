@@ -13,6 +13,9 @@
   width: 50%;
   height: 5vh;
 }
+.modDisponibilidadBtn:disabled {
+  background-color: white;
+}
 
 .modDisponibilidadInput {
   border-width: 0;

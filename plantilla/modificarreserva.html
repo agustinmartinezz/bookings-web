@@ -16,9 +16,17 @@
       <div class="modificarReservaForm form">
         <h1 class="pageTitle formTitle">Modificar reserva</h1>
         <div class="modificarReservaRow">
-          <p>Reservas</p>
+          <!-- <p>Reservas</p>
           <select class="" id="modificarReservaCbo">
-          </select>
+          </select> -->
+          <input list="modificarReservaCbo">
+          <datalist id="modificarReservaCbo">
+            <!-- <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari"> -->
+          </datalist>
         </div>
         <div class="modificarReservaRow">
           <div class="modificarReservaCol">
@@ -36,7 +44,7 @@
           </div>
         </div>
         <div class="modificarReservaRow">
-          <button class="modificarReservaBtn appBtn">Modificar</button>
+          <button class="modificarReservaBtn appBtn" id="modificarReservaBtn">Modificar</button>
         </div>
       </div>
     </section>

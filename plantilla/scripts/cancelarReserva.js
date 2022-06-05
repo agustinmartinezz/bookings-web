@@ -9,11 +9,11 @@ function cancelarReservaLoaded() {
   function cancelarReservaBtnClick() {
     if (cancelarReservaCbo.options.length > 0) {
       //Obtengo el usuario del local del combo
-      let usuarioLocal = cancelarReservaCbo.options[cancelarReservaCbo.selectedIndex].value
+      let idReserva = cancelarReservaCbo.options[cancelarReservaCbo.selectedIndex].value
 
       RESERVAS_APP.forEach((value) => {
         //Si la reserva corresponde a ese usuario y esa persona y esta en estado pendiente
-        if (value.usuarioLocal == usuarioLocal && value.usuarioPersona == USUARIO_ACTIVO[0].usuario && value.estadoReserva == 'P') {
+        if (value.idReserva == idReserva) {
           value.estadoReserva = 'C' //Cancelo la reserva correspondiente
           alert('Reserva cancelada correctamente')
 
@@ -55,11 +55,11 @@ function recargarReservasCancelar() {
     reservas.forEach((value) => {
       let option = document.createElement('option')
       let nombreLocal = ''
-      option.value = value.usuarioLocal //El value del option va a ser el usuario del local
+      option.value = value.idReserva //El value del option va a ser el id de reserva
 
-      USUARIOS_APP.forEach((value) => { //Busco en los usuarios el local y guardo el nombre
-        if (value.usuario == option.value) {
-          nombreLocal = value.nombre
+      USUARIOS_APP.forEach((value2) => { //Busco en los usuarios el local y guardo el nombre
+        if (value2.usuario == value.usuarioLocal) {
+          nombreLocal = `${option.value} - ${value2.nombre}`
         }
       })
       option.text = nombreLocal //El text del option va a ser el nombre del local

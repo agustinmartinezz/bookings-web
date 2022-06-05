@@ -18,16 +18,20 @@ function crearReservaLoaded() {
     if (validoReserva(usuarioActivo,usuarioLocal)) {
       if (cantReserva > 0) {
         if (validoDisponibilidad(cantReserva,usuarioLocal)) {
+          let idReserva = 0
+          //Busco ultimo id de reserva y le sumo 1
+          idReserva = RESERVAS_APP[RESERVAS_APP.length-1].idReserva + 1
+          
           //Creo una nueva instancia de una reserva para insertarla a los registros
-          let nuevaReserva = new Reserva(usuarioActivo.usuario,usuarioLocal,cantReserva,'P',0)
+          let nuevaReserva = new Reserva(idReserva,usuarioActivo.usuario,usuarioLocal,cantReserva,'P',0)
           RESERVAS_APP.push(nuevaReserva)
+
           alert('Reserva ingresada exitosamente')
           
           recargarReservasCancelar() //Recargo el combo de reservas en la pantalla de CANCELAR RESERVAS
           recargarTablaReservasPendientes() //Recargo tabla en reservas pendientes
           cargarLocalFavorito()
           realizarReservaCnt.value = ''
-          
         } else {
           alert('El local seleccionado no dispone del cupo necesario para su reserva')
         }

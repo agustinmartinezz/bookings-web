@@ -12,7 +12,7 @@ function calificarReservaLoaded() {
     //Valido que no tenga el combo de reservas vacio
     if (calificarReservaCbo.options.length > 0) {
       let calificacion = 5
-      let usuarioLocal = calificarReservaCbo.options[calificarReservaCbo.selectedIndex].value
+      let idReserva = calificarReservaCbo.options[calificarReservaCbo.selectedIndex].value
 
       //Obtengo la calificacion fijandome que estrellas NO estan doradas
       for (i=4;i>=0;i--) {
@@ -23,12 +23,7 @@ function calificarReservaLoaded() {
       //Si la calificacion no es nula, es decir, toco alguna estrella
       if (calificacion > 0) {
         RESERVAS_APP.forEach((value) => {
-          //Condiciones para encontrar la reserva que corresponde
-          let mismoUsuarioLocal = value.usuarioLocal == usuarioLocal
-          let mismoUsuaroPersona = value.usuarioPersona == USUARIO_ACTIVO[0].usuario
-          let estadoFinalizada = (value.estadoReserva == 'F' && value.calificacionReserva == 0)
-
-          if (mismoUsuarioLocal && mismoUsuaroPersona && estadoFinalizada) {
+          if (value.idReserva == idReserva) {
             //Ingreso la calificacion y recargo datos de la pantalla
             value.calificacionReserva = calificacion
             alert('Calificacion ingresada correctamente. Gracias!')
@@ -107,7 +102,7 @@ function recargarReservasCalificar() {
   let reservas = []
 
     //Vacio el combo de reservas para cargarlo nuevamente
-    while (calificarReservaCbo.options.length > 0) {                
+    while (calificarReservaCbo.options.length > 0) {
       calificarReservaCbo.remove(0);
     }
 
@@ -121,14 +116,15 @@ function recargarReservasCalificar() {
     reservas.forEach((value) => {
       let option = document.createElement('option')
       let nombreLocal = ''
-      option.value = value.usuarioLocal //El value del option va a ser el usuario del local
+      option.value = value.idReserva //El value del option va a ser el id de la reserva
 
-      USUARIOS_APP.forEach((value) => { //Busco en los usuarios el local y guardo el nombre
-        if (value.usuario == option.value) {
-          nombreLocal = value.nombre
+      USUARIOS_APP.forEach((value2) => { //Busco en los usuarios el local y guardo el nombre
+        
+        if (value2.usuario == value.usuarioLocal) {
+          nombreLocal = `${option.value} - ${value2.nombre}`
         }
       })
-      option.text = nombreLocal //El text del option va a ser el nombre del local
+      option.text = nombreLocal //El text del option va a ser el id de la reserva + nombre del local
 
       //Solo cargo las reservas que no tengan calificacion .-Calificacion en valor 0  
       if (value.calificacionReserva == 0) {
