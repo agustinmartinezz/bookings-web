@@ -17,7 +17,8 @@
         <h1 class="pageTitle formTitle">Información estadística</h1>
         <div class="estadisiticaLocalRow">
           <p>Ocupación:</p>
-          <input type="number" id="" readonly="true">
+          <input type="number" id="porcentajeOcupacionLocal" readonly="true">
+          <span>%</span>
         </div>
         <div class="estadisiticaLocalRow estadisiticaLocalRow2">
           <p>Promedio calificaciones:</p>
@@ -41,8 +42,16 @@
           <button class="appBtn" id="calificarReservaBtn">Todas las calificaciones</button>
         </div>
         <div class="estadisiticaLocalRow">
-          <p>Total de reservas:</p>
-          <input type="number" id="" readonly="true">
+          <p>Reservas pendientes:</p>
+          <input type="number" id="estadisticaLocalPendientes" readonly="true">
+        </div>
+        <div class="estadisiticaLocalRow">
+          <p>Reservas finalizadas:</p>
+          <input type="number" id="estadisticaLocalFinalizadas" readonly="true">
+        </div>
+        <div class="estadisiticaLocalRow">
+          <p>Reservas totales (incluye canceladas):</p>
+          <input type="number" id="estadisticaLocalTotal" readonly="true">
         </div>
       </div>
     </section>

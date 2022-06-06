@@ -81,6 +81,7 @@ function modCupoMaximoLoaded() {
       USUARIO_ACTIVO[0].cupoMaximo = nuevoCupo
       cupoMaximoTxt.value = ''
       modDisponibilidad() //Llamo para modificar el texto del cupo maximo 
+      estadisticaLocalLoaded()
       alert('Cupo máximo del local modificado correctamente')
     } else {
       alert('Ingrese un cupo máximo válido')

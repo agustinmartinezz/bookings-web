@@ -20,13 +20,12 @@ function modificarReservaLoaded() {
         let indice = 0
 
         do {
-          console.log('a')
           if (RESERVAS_APP[indice].idReserva == reserva[0].idReserva) {
-            console.log(RESERVAS_APP[indice].idReserva, reserva[0].idReserva)
             RESERVAS_APP[indice].estadoReserva = 'F'
             encontreReserva = true
             modificarReservaSearch.value = ''
             recargarModificarReservas()
+            estadisticaLocalLoaded()
             alert('Reserva finalizada correctamente!')
           }
           indice += 1

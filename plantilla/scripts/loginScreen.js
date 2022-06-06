@@ -102,6 +102,7 @@ function loginScreenLoaded() {
     } else{
       modDisponibilidad()
       recargarModificarReservas()
+      estadisticaLocalLoaded()
     }
     
   }

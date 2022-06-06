@@ -1,0 +1,90 @@
+.estadisticaGeneralForm {
+  height: 70%;
+  width: 60%;
+  justify-content: start;
+}
+
+.formTitle {
+  top: 0%;
+  margin: 1vh 0 4vh 0;
+}
+
+.estadisticaGeneralRow {
+  width: 50%;
+  display: flex;
+}
+
+.contenedorImg {
+  margin: 0 1vw;
+  height: 5vw;
+  width: 7vw;
+  object-fit: contain;
+}
+
+.col2 {
+  margin: 0 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: end;
+}
+
+table {
+  overflow-y: scroll;
+  /* height: 100%; */
+  display: grid;
+  border-collapse: collapse;
+  width: 100%;
+  grid-template-columns: 
+    minmax(20%, 20%)
+    minmax(60%, 60%)
+    minmax(20%, 20%);
+}
+
+thead,
+tr {
+   display: contents; 
+}
+
+th,
+td {
+  white-space: nowrap;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background: #aa671d;
+  text-align: left;
+  font-family: 'Akshar', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  color: black;
+}
+
+th:last-child {
+  border: 0;
+}
+
+td {
+  font-family: 'Akshar', sans-serif;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #808080;
+}
+
+.headerRow {
+  height: 5vh;
+}
+
+tr:nth-child(even) td {
+  background: #f5f3e7;
+}
+
+p {
+  font-family: 'Akshar', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}

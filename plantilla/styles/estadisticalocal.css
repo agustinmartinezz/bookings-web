@@ -24,6 +24,7 @@
 
 input {
   margin: 0 0 0 auto;
+  text-align: right;
 }
 
 ul {
@@ -39,7 +40,7 @@ li {
     width: 5vh;
 }
 
-p {
+p,span {
   font-family: 'Akshar', sans-serif;
   font-weight: bold;
   font-size: 18px;
