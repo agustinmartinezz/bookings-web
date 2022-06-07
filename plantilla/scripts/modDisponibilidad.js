@@ -69,22 +69,28 @@ function modCupoMaximoLoaded() {
     let nuevoCupo = Number(cupoMaximoTxt.value)
     let encontreUsuario = false
     let indice = 0
+    let reservasPend = 0
 
-    if (nuevoCupo && nuevoCupo > 0) {
-      do {
-        if (USUARIOS_APP[indice].usuario == USUARIO_ACTIVO[0].usuario) {
-          USUARIOS_APP[indice].cupoMaximo = nuevoCupo
-          encontreUsuario = true
-        }
-        indice += 1
-      } while (!encontreUsuario) 
-      USUARIO_ACTIVO[0].cupoMaximo = nuevoCupo
-      cupoMaximoTxt.value = ''
-      modDisponibilidad() //Llamo para modificar el texto del cupo maximo 
-      estadisticaLocalLoaded()
-      alert('Cupo máximo del local modificado correctamente')
-    } else {
-      alert('Ingrese un cupo máximo válido')
+    reservasPend = RESERVAS_APP.filter((value) => { return value.usuarioLocal == USUARIO_ACTIVO[0].usuario && value.estadoReserva == 'P' ? true : false})
+    if (reservasPend == 0) {
+      if (nuevoCupo && nuevoCupo > 0) {
+        do {
+          if (USUARIOS_APP[indice].usuario == USUARIO_ACTIVO[0].usuario) {
+            USUARIOS_APP[indice].cupoMaximo = nuevoCupo
+            encontreUsuario = true
+          }
+          indice += 1
+        } while (!encontreUsuario) 
+        USUARIO_ACTIVO[0].cupoMaximo = nuevoCupo
+        cupoMaximoTxt.value = ''
+        modDisponibilidad() //Llamo para modificar el texto del cupo maximo 
+        estadisticaLocalLoaded()
+        alert('Cupo máximo del local modificado correctamente')
+      } else {
+        alert('Ingrese un cupo máximo válido')
+      }
+    }else {
+      alert('El local cuenta con reservas pendientes')
     }
   }
 }
