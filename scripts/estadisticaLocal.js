@@ -38,7 +38,7 @@ function estadisticaLocalLoaded() {
 
   //Calculo el porcentaje que representa en el cupo maximo del local
   porcentajeOcupacion = (cantReservasFinLocal / USUARIO_ACTIVO[0].cupoMaximo) * 100
-  porcentajeOcupacionLocal.value = porcentajeOcupacion
+  porcentajeOcupacionLocal.value = porcentajeOcupacion.toFixed(2)
 
   estadisticaLocalPendientes.value = cantReservasFinLocal
 
