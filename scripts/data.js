@@ -40,7 +40,7 @@ const reservaIni2 = new Reserva(2,'cecilia','local2',11,'P',0)
 const reservaIni3 = new Reserva(3,'pedro','local3',5,'P',0)
 
 //Reservas Finalizadas y Pendientes
-const reservaIni4 = new Reserva(4,'nora','Local4',5,'P',0)
+const reservaIni4 = new Reserva(4,'nora','local4',5,'P',0)
 const reservaIni5 = new Reserva(5,'nora','local4',7,'F',0)
 const reservaIni6 = new Reserva(6,'octavio','local5',8,'P',0)
 const reservaIni7 = new Reserva(7,'octavio','local5',4,'F',0)
