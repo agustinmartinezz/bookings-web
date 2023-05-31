@@ -39,3 +39,9 @@ To acces as a Person you can sign up using the "Registrarse" button, keep in min
 
 ## Setup
 The application is currently deployed at Vercel, you can acces it here: [Bookings Web App](https://agustinmartinez-bookings.vercel.app/)
+
+## To Do
+* Translate app to english
+* Allow to change language
+* Implement data persistence 
+* Responsive design
