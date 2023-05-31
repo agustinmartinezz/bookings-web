@@ -1,6 +1,8 @@
 # Bookings 🗓
 Web application made as a university project, it allows to make reservations in different comercial places (without date or hour). The main goal was to implement HTML and Javascript, it doesn't connect with a DB so any data that the user enters will be saved in memory and lost at refresh.
 
+The application is currently deployed at Vercel, you can acces it here: [Bookings Web App](https://agustinmartinez-bookings.vercel.app/)
+
 ## Manual
 In order to try the app you have to understand what you can do with it. There are two kinds of user (Local, Person), each has access to different functionalities which are the following:
 ### Local
@@ -36,9 +38,6 @@ To acces as a Person you can sign up using the "Registrarse" button, keep in min
 * Javascript
 * HTML
 * CSS
-
-## Setup
-The application is currently deployed at Vercel, you can acces it here: [Bookings Web App](https://agustinmartinez-bookings.vercel.app/)
 
 ## To Do
 * Translate app to english
